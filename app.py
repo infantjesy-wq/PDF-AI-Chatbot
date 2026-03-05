@@ -47,7 +47,7 @@ if uploaded_file:
             st.chat_message("user").write(question)
             st.session_state.messages.append({"role": "user", "content": question})
 
-            # AI Logic (Previously in FastAPI)
+            # AI Logic 
             question_embedding = model.encode(question)
             scores = util.cos_sim(question_embedding, sentence_embeddings)
             best_match_idx = scores.argmax()
@@ -59,3 +59,4 @@ if uploaded_file:
             with st.chat_message("assistant"):
                 st.write(full_res)
             st.session_state.messages.append({"role": "assistant", "content": full_res})
+
